@@ -34,19 +34,30 @@ export default {
 
             <p class="card-text"> {{ project.description }} </p>
 
-
         </div>
 
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import "../style.scss";
+
 .card {
+    background-color: $primary_color;
+    color: black;
+    border: 1px solid $secondary_color;
+
     .cover-image {
         height: 300px;
 
         object-fit: cover;
         object-position: center;
+    }
+
+    .card-body {
+        .card-title {
+            color: #001419;
+        }
     }
 }
 </style>

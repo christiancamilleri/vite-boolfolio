@@ -28,10 +28,13 @@ export default {
 </script>
 
 <template>
-    <h1>Tutti i progetti:</h1>
-    <div class="row">
-        <div v-for="project in projects" class="col-4 mb-5">
-            <ProjectCard :project="project"></ProjectCard>
+    <h1 class="text-center my-3">I miei progetti:</h1>
+    <div class="container">
+        <div class="row">
+            <div v-for="project in projects" class="col-6 mb-5">
+                <ProjectCard :project="project"></ProjectCard>
+
+            </div>
 
         </div>
 

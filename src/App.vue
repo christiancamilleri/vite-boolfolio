@@ -4,6 +4,7 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
 
+
 export default {
   name: 'App',
   data() {
@@ -19,6 +20,7 @@ export default {
 
 <template>
   <body>
+
     <AppHeader></AppHeader>
     <router-view></router-view>
 
@@ -26,7 +28,9 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@import "./style.scss";
+
 body {
-  background-color: #012832;
+  background-color: $background_color;
 }
 </style>
