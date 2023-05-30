@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  Tutti i progetti:
+  <h1>Tutti i progetti:</h1>
   <div class="row">
     <div v-for="project in projects" class="col-4 mb-5">
       <ProjectCard :project="project"></ProjectCard>

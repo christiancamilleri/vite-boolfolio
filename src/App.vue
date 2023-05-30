@@ -2,7 +2,7 @@
 
 
 <script>
-import AppMain from './components/AppMain.vue';
+import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'App',
@@ -12,15 +12,21 @@ export default {
     }
   },
   components: {
-    AppMain,
+    AppHeader,
   }
 }
 </script>
 
 <template>
-  <div class="container">
-    <AppMain></AppMain>
-  </div>
+  <body>
+    <AppHeader></AppHeader>
+    <router-view></router-view>
+
+  </body>
 </template>
 
-<style ></style>
+<style lang="scss" scoped>
+body {
+  background-color: #012832;
+}
+</style>
