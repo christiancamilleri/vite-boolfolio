@@ -24,6 +24,33 @@ export default {
 </script>
 
 <template>
+    <div>
+        <div class="card mb-3 my-card animate__animated animate__backInUp" style="">
+            <h2 class="card-title">{{ project.name }}</h2>
+
+            <img id="my-img" :src="img" class="card-img-top" alt="...">
+
+
+            <div class="card-body">
+                <p class="card-text">{{ project.description }}</p>
+                <p class="card-text">
+                    {{ project.type?.name }}
+                </p>
+                <p class="card-text">
+                    <small v-for="item in project.technologies" class="text-body-secondary">
+                        {{ item.name }},
+                    </small>
+                </p>
+                <div class="text-center">
+                    <Router-link :to="{ name: 'project.show', params: { slug: project.slug } }"
+                        class="btn  my-btn">Show</Router-link>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
     <!-- <div class="card post">
 
         <img :src="img" class="cover-image card-img-top" alt="...">
@@ -42,49 +69,36 @@ export default {
         </div>
 
     </div> -->
-
-    <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img :src="img" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{ project.name }}</h5>
-                    <p class="card-text">{{ project.description }}</p>
-                    <p class="card-text">
-                        {{ project.type?.name }}
-                    </p>
-                    <p class="card-text">
-                        <small v-for="item in project.technologies" class="text-body-secondary">
-                            {{ item.name }},
-                        </small>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
 </template>
 
 <style lang="scss" scoped>
 @import "../style.scss";
 
-.card {
-    background-color: $primary_color;
-    color: black;
-    border: 1px solid $secondary_color;
+.my-card {
+    border: 1px solid $primary_color;
+    // border: 1px solid $primary_color;
+    padding: 1em;
 
-    .cover-image {
+    width: 30rem;
+
+    height: 100%;
+
+    .card-title {
+        text-align: center;
+    }
+
+    #my-img {
         height: 300px;
 
         object-fit: cover;
         object-position: center;
     }
 
-    .card-body {
-        .card-title {
-            color: #001419;
-        }
+    .my-btn {
+        background-color: $primary_color;
+        color: black;
     }
+
+
 }
 </style>

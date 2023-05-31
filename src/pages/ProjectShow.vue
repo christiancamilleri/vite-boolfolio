@@ -10,7 +10,7 @@ export default {
             isLoading: true,
             project: {},
 
-            url: 'http://127.0.0.1:8000',
+            url: 'http://127.0.0.1:8000/',
         }
     },
     mounted() {
@@ -34,7 +34,11 @@ export default {
     },
     computed: {
         img() {
-            return this.url + 'storage/' + this.project.thumb_preview;
+            if (this.project.thumb_preview == null) {
+                return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYnkJFe_M0Wi8G6hmKRSTVXYvUzXUa2-1_IUssm6zPWzgsLE7rZoC5krgUz-33ndxSCqg&usqp=CAU'
+            } else {
+                return this.url + 'storage/' + this.project.thumb_preview;
+            }
         }
     }
 }
@@ -47,23 +51,36 @@ export default {
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>
-    <div v-else class="container">
+    <div v-else>
         <div v-if="projectFound">
-            <div class="project-image">
+            <div class="my-img my-5">
 
-                <img :src="img" alt="">
+                <img :src="img" alt="prova">
             </div>
-            <h1>{{ project.name }}</h1>
-            <hr>
-            <p>{{ project.description }}</p>
-            <hr>
-            <h4>
-                {{ project.type?.name ?? 'nessuna tipologia specificata' }}
-            </h4>
-            <hr>
-            <div class="technologies">
-                <div v-for="item in project.technologies">
-                    <span>{{ item.name }}</span>
+            <div class="container">
+
+                <span>
+                    Nome progetto:
+                    <h1>{{ project.name }}</h1>
+                </span>
+                <hr>
+                <span>Descrizione:</span>
+                <h3>{{ project.description }}</h3>
+                <hr>
+                <span>
+                    Tipologia:
+                </span>
+                <h4>
+                    {{ project.type?.name ?? 'nessuna tipologia specificata' }}
+                </h4>
+                <hr>
+                <div class="technologies">
+                    <span>
+                        Tecnologie utilizzate:
+                    </span>
+                    <div v-for="item in project.technologies">
+                        <span>{{ item.name }}</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -81,8 +98,6 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    width: 100%;
 
 }
 </style>

@@ -12,8 +12,9 @@ export default {
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
 
-            <router-link class="navbar-brand" :to="{ name: 'home' }">
-                <h1>Christian's portfolio</h1>
+            <router-link class="navbar-brand p-0" :to="{ name: 'home' }">
+                <img class="animate__animated animate__slideInDown " id="my-logo" src="../web-developer.png" alt="">
+
             </router-link>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -41,24 +42,24 @@ export default {
 @import "../style.scss";
 
 nav {
-    background-color: $primary_color;
+    background-color: black;
 
-    .container {
-        .navbar-brand {
-            h1 {
-                color: #012832;
-            }
-        }
+    #my-logo {
+        width: 100%;
+        height: 150px;
+    }
+
+    .nav-item:hover {
+        background-color: $background_color;
     }
 
     .nav-item {
-        a {
-            color: #012832;
-        }
+
 
         .router-link-active {
             font-weight: bold;
-            color: $secondary_color;
+            scale: 1.1;
+            color: $primary_color;
             ;
         }
     }

@@ -29,8 +29,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "./style.scss";
-
-body {
-  background-color: $background_color;
-}
 </style>

@@ -49,7 +49,8 @@ export default {
         <h1 class="text-center my-3">I miei progetti:</h1>
         <div class="container">
             <form action="" class="d-flex">
-                <select name="type_id" id="type_id" class="form-select" v-model="selectedTypeId" @change="getProjects()">
+                <select name="type_id" id="type_id" class="form-select my-select" v-model="selectedTypeId"
+                    @change="getProjects()">
                     <option value="">Tutte</option>
                     <option v-for="item in types" :value="item.id">{{ item.name }}</option>
                 </select>
@@ -84,4 +85,10 @@ export default {
     </div>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+@import "../style.scss";
+
+.my-select {
+    border: 1px solid $primary_color;
+}
+</style>
