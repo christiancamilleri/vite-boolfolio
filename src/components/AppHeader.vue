@@ -55,6 +55,12 @@ nav {
         a {
             color: #012832;
         }
+
+        .router-link-active {
+            font-weight: bold;
+            color: $secondary_color;
+            ;
+        }
     }
 }
 </style>

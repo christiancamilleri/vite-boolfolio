@@ -24,7 +24,7 @@ export default {
 </script>
 
 <template>
-    <div class="card post">
+    <!-- <div class="card post">
 
         <img :src="img" class="cover-image card-img-top" alt="...">
 
@@ -34,8 +34,35 @@ export default {
 
             <p class="card-text"> {{ project.description }} </p>
 
+            <div class="text-center">
+                <Router-link :to="{ name: 'project.show', params: { slug: project.slug } }"
+                    class="btn btn-primary">Show</Router-link>
+            </div>
+
         </div>
 
+    </div> -->
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img :src="img" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.name }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                    <p class="card-text">
+                        {{ project.type?.name }}
+                    </p>
+                    <p class="card-text">
+                        <small v-for="item in project.technologies" class="text-body-secondary">
+                            {{ item.name }},
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
